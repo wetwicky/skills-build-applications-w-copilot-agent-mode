@@ -11,16 +11,29 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
+      <nav className="navbar">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">Octofit Tracker</Link>
-          <div className="collapse navbar-collapse">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item"><Link className="nav-link" to="/activities">Activities</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/leaderboard">Leaderboard</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/teams">Teams</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/users">Users</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/workouts">Workouts</Link></li>
+          <div className="d-flex align-items-center w-100">
+            <Link className="navbar-brand fw-bold me-4 d-flex align-items-center" to="/">
+              <img src={process.env.PUBLIC_URL + '/octofitapp-small.png'} alt="Octofit Logo" className="App-logo" />
+              Octofit Tracker
+            </Link>
+            <ul className="nav nav-tabs">
+              <li className="nav-item">
+                <Link className="nav-link" to="/activities">Activities</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/leaderboard">Leaderboard</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/teams">Teams</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/users">Users</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/workouts">Workouts</Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -32,7 +45,11 @@ function App() {
           <Route path="/teams" element={<Teams />} />
           <Route path="/users" element={<Users />} />
           <Route path="/workouts" element={<Workouts />} />
-          <Route path="/" element={<h2>Welcome to Octofit Tracker!</h2>} />
+          <Route path="/" element={
+            <div className="d-flex flex-column align-items-center justify-content-center" style={{height: '60vh'}}>
+              <h1 className="mt-5 mb-4 fw-bold">Welcome to Octofit Tracker!</h1>
+            </div>
+          } />
         </Routes>
       </div>
     </Router>

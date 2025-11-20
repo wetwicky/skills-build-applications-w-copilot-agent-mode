@@ -19,12 +19,18 @@ from django.contrib import admin
 from django.urls import path
 from django.http import JsonResponse
 
+from django.http import HttpResponse
+
 def api_root(request):
     codespace_name = os.environ.get('CODESPACE_NAME', 'localhost')
     api_url = f"https://{codespace_name}-8000.app.github.dev/api/"
     return JsonResponse({"api_url": api_url})
 
+def home(request):
+    return HttpResponse("<h2>Welcome to Octofit Tracker Backend!</h2>")
+
 urlpatterns = [
+    path('', home),
     path('admin/', admin.site.urls),
     path('api/', api_root),
 ]
