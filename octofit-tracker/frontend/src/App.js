@@ -46,8 +46,27 @@ function App() {
           <Route path="/users" element={<Users />} />
           <Route path="/workouts" element={<Workouts />} />
           <Route path="/" element={
-            <div className="d-flex flex-column align-items-center justify-content-center" style={{height: '60vh'}}>
-              <h1 className="mt-5 mb-4 fw-bold">Welcome to Octofit Tracker!</h1>
+            <div className="dashboard">
+              <h1 className="mt-5 mb-4 fw-bold text-center">Octofit Tracker Dashboard</h1>
+              <div className="row mb-4">
+                <div className="col-md-6 mb-4">
+                  <Activities />
+                </div>
+                <div className="col-md-6 mb-4">
+                  <Leaderboard />
+                </div>
+              </div>
+              <div className="row mb-4">
+                <div className="col-md-4 mb-4">
+                  <Teams />
+                </div>
+                <div className="col-md-4 mb-4">
+                  <Users />
+                </div>
+                <div className="col-md-4 mb-4">
+                  <Workouts />
+                </div>
+              </div>
             </div>
           } />
         </Routes>
